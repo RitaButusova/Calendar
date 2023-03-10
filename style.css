@@ -1,0 +1,81 @@
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin-top: 5vh;
+}
+
+.calendar {
+    margin-bottom: 2vh;
+}
+
+div.options > select {
+    margin-bottom: 2vh;
+    width: 23.1vw;
+}
+
+.table-result {
+    width: 100%;
+    margin-top: 5vh;
+}
+
+.options {
+    display: flex;  
+    flex-direction: column;  
+}
+
+#btn_result {
+    width: 10vw;
+    background-color: green;
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+input[type="date"]{
+    background-color: green;
+    padding: 15px;
+    font-family: "Roboto Mono", monospace;
+    color: #ffffff;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+::-webkit-calendar-picker-indicator {
+    background-color: #ffffff;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+@media screen and (max-width: 900px) {
+    .container {
+        margin-top: 2vw;
+    }
+    .options {
+        width: auto;
+        flex-direction: column;
+    }
+    input[type="date"] {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    #btn_result {
+        width: 20vw;
+        margin: 0 auto;
+    }
+    div.options > select {
+        width: 100%;
+    }
+    .table-result {
+        margin-top: 2vh;
+    }
+}

@@ -22,19 +22,34 @@ pressets.forEach((presset) => presset.addEventListener('click', choiceSecondDate
 
 
 function choiceSecondDate(event) {
-    if (event.target.checked) {
-        newSecondDate = new Date(firstDate);
-        if (event.target.id = 'week') {
-            document.getElementById('week').checked = 'true'
-            newSecondDate.setDate(newSecondDate.getDate() + 6)
-        } else {
-            document.getElementById('month').checked = 'true'
-            newSecondDate.setMonth(newSecondDate.getMonth() + 1);
+    let selectedPresset;
+
+    for (const radioButton of pressets) {
+        if (radioButton.checked) {
+            selectedPresset = radioButton.getAttribute('id');
+            break;
         }
-        secondDate = new Date(secondDate).toISOString().slice(0, 10);
-        secondCalendar.value = new Date(secondDate).toISOString().slice(0, 10);
     }
-    return secondDate;
+    console.log(selectedPresset)
+
+    newSecondDate = new Date(firstDate);
+
+    switch (selectedPresset) {
+        case 'week':
+            newSecondDate.setDate(newSecondDate.getDate() + 6);
+            secondDate = new Date(newSecondDate).toISOString().slice(0, 10);
+            console.log(secondDate)
+            secondCalendar.value = new Date(secondDate).toISOString().slice(0, 10);
+            break;
+        case 'month':
+            newSecondDate.setMonth(newSecondDate.getMonth() + 1);
+            secondDate = new Date(newSecondDate).toISOString().slice(0, 10);
+            console.log(secondDate)
+            secondCalendar.value = new Date(secondDate).toISOString().slice(0, 10);
+            break;
+        default:
+            return;
+    } 
 }
 
 function showResults() {
